@@ -10,6 +10,9 @@ import (
 	"github.com/fatih/color"
 )
 
+// TODO: have some of the fish die from old age
+// TODO: have some of the fish die from over population
+
 type Setup struct {
 	farmers int // the amont of farmers in the system
 	fish    int // the amount of fish in the pond to begin with
@@ -28,8 +31,8 @@ func main() {
 }
 
 func Start() {
+	systemSetup := Setup{4, 20, 2, 0} // this is where the starting conditions are set. farmers, fish, amount taken
 	for {
-		systemSetup := Setup{4, 20, 2, 0} // this is where the starting conditions are set. farmers, fish, amount taken
 		farmers := RandomizeFarmers(5, &systemSetup)
 		systemSetup.details()
 		GoFishing(farmers, &systemSetup)
